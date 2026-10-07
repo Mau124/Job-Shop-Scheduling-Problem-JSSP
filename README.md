@@ -103,3 +103,8 @@ experiments/
 tests/
     How do we know everything works?
 ```
+
+followed steps:
+- modeled the problem and objects
+- created a validator for TDD
+- 
