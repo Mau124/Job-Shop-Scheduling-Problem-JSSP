@@ -19,6 +19,21 @@ class JSPInstance:
     jobs: list[Job]
     num_machines: int
 
+@dataclass
+class JSP:
+    num_jobs: int
+    num_machines: int
+    total_operations: int
+    max_ops: list[int]
+    ops: list[list]
+    dur: list[list]
+
+@dataclass
+class ExperimentConfig:
+    n_repeats: int
+    max_time: int
+    instances: list[JSP]
+
 ''' Instance example
 instance = JSPInstance(
     jobs=[

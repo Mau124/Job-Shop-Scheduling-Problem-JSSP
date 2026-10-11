@@ -1,0 +1,33 @@
+{
+"instance": "toy4x3",
+"family": "easy",
+"family_long": "ToyExample",
+"solution": 13,
+"year": "2026",
+"jobs": 4,
+"machines": 3,
+"operations":[
+{"operation":0,"job":0,"step":0,"option":0,"machine":0,"duration":3},
+{"operation":1,"job":0,"step":1,"option":0,"machine":1,"duration":2},
+{"operation":2,"job":0,"step":2,"option":0,"machine":2,"duration":2},
+{"operation":3,"job":1,"step":0,"option":0,"machine":1,"duration":2},
+{"operation":4,"job":1,"step":1,"option":0,"machine":2,"duration":3},
+{"operation":5,"job":1,"step":2,"option":0,"machine":0,"duration":2},
+{"operation":6,"job":2,"step":0,"option":0,"machine":2,"duration":4},
+{"operation":7,"job":2,"step":1,"option":0,"machine":0,"duration":2},
+{"operation":8,"job":2,"step":2,"option":0,"machine":1,"duration":3},
+{"operation":9,"job":3,"step":0,"option":0,"machine":0,"duration":2},
+{"operation":10,"job":3,"step":1,"option":0,"machine":2,"duration":2},
+{"operation":11,"job":3,"step":2,"option":0,"machine":1,"duration":4}
+],
+"precedences":[
+{"before":0,"after":1,"label":0},
+{"before":1,"after":2,"label":0},
+{"before":3,"after":4,"label":1},
+{"before":4,"after":5,"label":1},
+{"before":6,"after":7,"label":2},
+{"before":7,"after":8,"label":2},
+{"before":9,"after":10,"label":3},
+{"before":10,"after":11,"label":3}
+]
+}

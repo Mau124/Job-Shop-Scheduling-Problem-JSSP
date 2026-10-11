@@ -1,0 +1,7 @@
+experiment:
+  n_repeats: 10
+  max_time: 60
+  instances:
+    - 'add_path_to_problem.json'
+    - 'add_path_to_problem.json'
+    - 'add_path_to_problem.json'

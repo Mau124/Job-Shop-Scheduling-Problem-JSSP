@@ -1,4 +1,4 @@
-# Job-Shop-Scheduling-Problem-JSP-
+# Job-Shop-Scheduling-Problem-JSSP-
 Repository to solve the Job Shop Scheduling Problem
 
 ### How to run
@@ -9,8 +9,6 @@ Using [UV](https://docs.astral.sh/uv/pip/environments/)
 
 ### Repository structure
 ```text
-jssp/
-│
 ├── README.md
 ├── main.py
 ├── .venv
@@ -21,7 +19,7 @@ jssp/
 ├── pre-analysis/...
 |
 ├── src/
-│   └── jsp/
+│   └── jssp/
 │       ├── __init__.py
 │       │
 │       ├── core/
