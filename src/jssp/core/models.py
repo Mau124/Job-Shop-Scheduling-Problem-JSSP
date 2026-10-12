@@ -19,6 +19,23 @@ class JSPInstance:
     jobs: list[Job]
     num_machines: int
 
+@dataclass
+class JSP:
+    name: str
+    known_solution: int
+    num_jobs: int
+    num_machines: int
+    total_operations: int
+    max_ops: list[int]
+    ops: list[list]
+    dur: list[list]
+
+@dataclass
+class ExperimentConfig:
+    n_repeats: int
+    max_time: int
+    instances: list[JSP]
+
 ''' Instance example
 instance = JSPInstance(
     jobs=[
@@ -78,7 +95,7 @@ Schedule(
 
 @dataclass
 class SolverResult:
-    schedule: Schedule | None
+    schedule: list | None
 
     makespan: int | None
 
@@ -89,6 +106,8 @@ class SolverResult:
 
     expanded_nodes: int | None = None
     max_frontier: int | None = None
+
+    diff_to_solution: int | None = None
 
 # Validation model
 

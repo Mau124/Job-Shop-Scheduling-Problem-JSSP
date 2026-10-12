@@ -1,0 +1,22 @@
+{
+"instance": "toy3x2",
+"family": "easy",
+"family_long": "ToyExample",
+"solution": 9,
+"year": "2026",
+"jobs": 3,
+"machines": 2,
+"operations":[
+{"operation":0,"job":0,"step":0,"option":0,"machine":0,"duration":3},
+{"operation":1,"job":0,"step":1,"option":0,"machine":1,"duration":2},
+{"operation":2,"job":1,"step":0,"option":0,"machine":1,"duration":2},
+{"operation":3,"job":1,"step":1,"option":0,"machine":0,"duration":4},
+{"operation":4,"job":2,"step":0,"option":0,"machine":0,"duration":2},
+{"operation":5,"job":2,"step":1,"option":0,"machine":1,"duration":3}
+],
+"precedences":[
+{"before":0,"after":1,"label":0},
+{"before":2,"after":3,"label":1},
+{"before":4,"after":5,"label":2}
+]
+}
