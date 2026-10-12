@@ -2,6 +2,6 @@ experiment:
   n_repeats: 10
   max_time: 60
   instances:
-    - 'add_path_to_problem.json'
-    - 'add_path_to_problem.json'
-    - 'add_path_to_problem.json'
+    - '/Users/mau/Documents/Git/Job-Shop-Scheduling-Problem-JSP-/instances/generated/easy/example1.json'
+    - '/Users/mau/Documents/Git/Job-Shop-Scheduling-Problem-JSP-/instances/generated/easy/example2.json'
+    - '/Users/mau/Documents/Git/Job-Shop-Scheduling-Problem-JSP-/instances/generated/easy/example3.json'
