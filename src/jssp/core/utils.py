@@ -16,7 +16,8 @@ def read_config_file(file_path):
     return ExperimentConfig(
         int(exp_data.get('n_repeats', 1)),
         int(exp_data.get('max_time', 0)),
-        [read_problem_instance(str(instance)) for instance in exp_data.get('instances', [])]
+        [read_problem_instance(path.parent / Path(instance))
+         for instance in exp_data.get('instances', [])]
     )
 
 
