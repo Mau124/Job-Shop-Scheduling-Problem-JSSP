@@ -1,16 +1,18 @@
-from ..core.models import JSP
-from abc import ABC, abstractmethod
+from ..core.models import JSP, Solver, SolverResult
 import copy
+from abc import abstractmethod
 
-class RecursiveSolver(ABC):
+class RecursiveSolver(Solver):
 
-    def __init__(self, jsp_instance: JSP):
+    def __init__(self, jsp_instance: JSP, seed: int, hyperparameters: dict):
         self.num_jobs = jsp_instance.num_jobs
         self.num_machines = jsp_instance.num_machines
         self.ops = jsp_instance.ops
         self.dur = jsp_instance.dur
         self.total_operations = jsp_instance.total_operations
         self.max_ops = jsp_instance.max_ops
+
+        self.result = None
 
     def solve(self):
         self.indexes = [0 for _ in range(self.num_jobs)]
@@ -24,6 +26,11 @@ class RecursiveSolver(ABC):
 
         initial_actions = list(range(self.num_jobs))
         self._search_schedule(initial_actions)
+
+        self.result = SolverResult(
+            schedule = self.schedule_response,
+            makespan = self.min_time
+        )
 
     def _search_schedule(self, possible_actions: list[int]):
                 

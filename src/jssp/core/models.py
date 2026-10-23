@@ -1,4 +1,6 @@
 from dataclasses import dataclass
+from abc import ABC, abstractmethod
+import inspect
 
 # Problem representation
 
@@ -30,8 +32,57 @@ class JSP:
     ops: list[list]
     dur: list[list]
 
+class Solver(ABC):
+
+    def __init_subclass__(cls, **kwargs):
+        super().__init_subclass__(**kwargs)
+        
+        sig = inspect.signature(cls.__init__)
+        parameters = list(sig.parameters.keys())
+
+        if 'jsp_instance' not in parameters:
+            raise TypeError(
+                f"Error: Class '{cls.__name__}' must include 'jsp_instance' "
+                f"in its __init__ signature to match the Solver contract."
+            )
+
+        if 'seed' not in parameters:
+            raise TypeError(
+                f"Error: Class '{cls.__name__}' must include 'seed' "
+                f"in its __init__ signature to match the Solver contract."
+            )
+
+        if 'hyperparameters' not in parameters:
+            raise TypeError(
+                f"Error: Class '{cls.__name__}' must include 'hyperparameters' "
+                f"in its __init__ signature to match the Solver contract."
+            )
+
+    def __init__(self, jsp_instance: JSP, seed: int, hyperparameters: dict):
+        pass
+
+    @abstractmethod
+    def solve():
+        pass
+
+@dataclass
+class SolverConfig:
+    name: str
+    solver: Solver
+    hyperparameters: dict
+
 @dataclass
 class ExperimentConfig:
+    n_repeats: int
+    max_time: int
+    instances: list[JSP]
+    seeds: list[int]
+    solver: SolverConfig
+
+@dataclass
+class BenchmarkConfig:
+    solvers: list[SolverConfig]
+    seeds: list[int]
     n_repeats: int
     max_time: int
     instances: list[JSP]
@@ -96,17 +147,16 @@ Schedule(
 @dataclass
 class SolverResult:
     schedule: list | None
-
     makespan: int | None
 
+@dataclass
+class ExperimentResult:
+    solver_result: SolverResult | None
     runtime: float
     time_to_best: float | None
-
     success: bool
-
     expanded_nodes: int | None = None
     max_frontier: int | None = None
-
     diff_to_solution: int | None = None
 
 # Validation model

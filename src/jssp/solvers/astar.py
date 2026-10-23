@@ -1,13 +1,17 @@
 from heapq import heappop, heappush
 from itertools import count
 
-from ..core.models import JSP
+from ..core.models import JSP, Solver, SolverResult
 
 """
 Minimize makespan with A* and an admissible remaining-cost bound
 """
-class AStarSolver:
-    def __init__(self, jsp_instance: JSP, heuristic: str = "h2"):
+class AStarSolver(Solver):
+    def __init__(self, jsp_instance: JSP, seed: int, hyperparameters: dict):
+
+        self.hyperparameters = hyperparameters
+        heuristic = self.hyperparameters.get('heuristic', 'h2')
+
         if heuristic not in ("h1", "h2"):
             raise ValueError("heuristic must be 'h1' or 'h2'")
 
@@ -20,6 +24,8 @@ class AStarSolver:
         self.total_operations = jsp_instance.total_operations
         self.max_ops = jsp_instance.max_ops
         self.heuristic = heuristic
+
+        self.result = None
 
     def _heuristic(self, indexes, time, job_time):
         makespan = max(time, default=0)
@@ -76,6 +82,10 @@ class AStarSolver:
             if sum(indexes) == self.total_operations:
                 self.schedule_response = schedule
                 self.min_time = max(time, default=0)
+                self.result = SolverResult(
+                    schedule = self.schedule_response,
+                    makespan = self.min_time
+                )
                 return
 
             # Choosing only the next operation of each job preserves job order
