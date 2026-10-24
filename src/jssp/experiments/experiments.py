@@ -70,9 +70,9 @@ class Experiment:
             elapsed_times = [r.runtime for r in results if r.runtime is not None]
 
             min_times = [
-                r.solver_result.min_time 
-                for r in successful_runs 
-                if r.solver_result and r.solver_result.min_time is not None
+                r.solver_result.makespan
+                for r in successful_runs
+                if r.solver_result and r.solver_result.makespan is not None
             ]
             
             expanded_nodes = [r.expanded_nodes for r in successful_runs if r.expanded_nodes is not None]
@@ -160,7 +160,10 @@ class Experiment:
 
                     self.results[instance.name].append(
                         ExperimentResult(
-                            SolverResult(schedule_response, min_time),
+                            SolverResult(
+                                schedule=schedule_response,
+                                makespan=min_time,
+                            ),
                             elapsed_time,
                             None,
                             success,
