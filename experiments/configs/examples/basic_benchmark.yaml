@@ -2,9 +2,9 @@ benchmark:
   n_repeats: 10
   max_time: 60
   instances:
-    - '../../../instances/generated/easy/example1.json'
-    - '../../../instances/generated/easy/example2.json'
-    # - '../../../instances/generated/easy/example3.json'
+    - '../../../instances/generated/simple/example1.json'
+    - '../../../instances/generated/simple/example2.json'
+    # - '../../../instances/generated/simple/example3.json'
     # - '../../instances/benchmarks/ft/ft06.json'
   solvers:
     - name: 'DFS'
@@ -28,4 +28,3 @@ benchmark:
     - name: 'CSP'
       type: CSPSolver 
   seeds: [42, 100, 2026, 7, 19, 45, 23, 200, 9, 1]
-  
