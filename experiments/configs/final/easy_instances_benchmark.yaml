@@ -2,8 +2,8 @@ benchmark:
   n_repeats: 10
   max_time: 60
   instances:
-    - '/Users/mau/Documents/Git/Job-Shop-Scheduling-Problem-JSP-/instances/benchmarks/easy' # To avoid problems, it's better to use full path
-  output: '/Users/mau/Documents/Git/Job-Shop-Scheduling-Problem-JSP-/outputs'
+    - '../../../instances/benchmarks/easy'
+  output: 'outputs'
   solvers:
     - name: 'DFS'
       type: 'DFSSolver'

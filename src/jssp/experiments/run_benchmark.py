@@ -1,35 +1,126 @@
 import argparse
-import yaml
-
+import os
 from pathlib import Path
+
+from jssp.core.utils import read_benchmark_config_file
 from jssp.experiments.experiments import Benchmark
 
-def main():
+INSTANCE_SETS = ('toy', 'easy', 'medium', 'hard')
+
+
+def parse_max_time(value: str) -> int | None:
+    if value.lower() == 'none':
+        return None
+
+    try:
+        max_time = int(value)
+    except ValueError as error:
+        raise argparse.ArgumentTypeError(
+            'max time must be a positive integer or "none"'
+        ) from error
+
+    if max_time <= 0:
+        raise argparse.ArgumentTypeError(
+            'max time must be greater than zero or "none"'
+        )
+
+    return max_time
+
+
+def parse_workers(value: str) -> int | str:
+    if value.lower() == 'max':
+        return 'max'
+
+    try:
+        workers = int(value)
+    except ValueError as error:
+        raise argparse.ArgumentTypeError(
+            'workers must be a positive integer or "max"'
+        ) from error
+
+    if workers <= 0:
+        raise argparse.ArgumentTypeError(
+            'workers must be greater than zero or "max"'
+        )
+
+    return workers
+
+
+def resolve_workers(value: int | str, experiment_count: int) -> int:
+    if value == 'max':
+        return min(os.cpu_count() or 1, max(experiment_count, 1))
+
+    return value
+
+
+def parse_arguments(arguments=None):
     parser = argparse.ArgumentParser(description='Run experiment benchmarks from a YAML config file.')
-    
+
     parser.add_argument(
-        '--config', 
-        type=str, 
-        required=True, 
+        '--config',
+        type=str,
+        required=True,
         help='Path to the YAML configuration file (e.g., config.yaml)'
     )
-    
+
     parser.add_argument(
-        '--verbose', 
-        action='store_true', 
+        '--verbose',
+        action='store_true',
         help='Enable verbose logging.'
     )
 
-    args = parser.parse_args()
+    parser.add_argument(
+        '--max-time',
+        type=parse_max_time,
+        default=argparse.SUPPRESS,
+        metavar='SECONDS',
+        help='Override the configured timeout with a positive number of seconds; use "none" for no timeout.'
+    )
+    parser.add_argument(
+        '--instances',
+        nargs='+',
+        choices=(*INSTANCE_SETS, 'all'),
+        metavar='SET',
+        help='Instance sets to run; choose toy, easy, medium, hard, or all.'
+    )
+    parser.add_argument(
+        '--workers',
+        type=parse_workers,
+        default=1,
+        metavar='COUNT',
+        help='Concurrent solver experiments; use a positive integer or "max" (default: 1).'
+    )
 
-    print(f'Loading configuration from: {args.config}')
-    benchmark = Benchmark.from_yaml(args.config)
-    
-    if args.verbose:
-        print('Verbose mode enabled.')
-        
-    benchmark.run_benchmarks()
-    benchmark.print_comparison_summary()
+    return parser.parse_args(arguments)
 
-if __name__ == "__main__":
+
+def create_benchmark(args):
+    benchmark_config = read_benchmark_config_file(args.config)
+
+    if hasattr(args, 'max_time'):
+        benchmark_config.max_time = args.max_time
+
+    return Benchmark(benchmark_config)
+
+
+def main():
+    args = parse_arguments()
+
+    instance_sets = INSTANCE_SETS if args.instances and 'all' in args.instances else args.instances or (None,)
+    for instance_set in instance_sets:
+        if instance_set:
+            args.config = str(Path(args.config).with_name(f'{instance_set}_instances_benchmark.yaml'))
+
+        print(f'Loading configuration from: {args.config}')
+        benchmark = create_benchmark(args)
+
+        if args.verbose:
+            print('Verbose mode enabled.')
+
+        max_workers = resolve_workers(args.workers, len(benchmark.experiments))
+        benchmark.run_benchmarks(max_workers=max_workers)
+        benchmark.print_comparison_summary()
+
+
+if __name__ == '__main__':
     main()

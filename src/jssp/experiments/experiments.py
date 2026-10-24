@@ -1,5 +1,5 @@
 
-from concurrent.futures import ThreadPoolExecutor, TimeoutError, ProcessPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from jssp.core.utils import read_exp_config_file, read_benchmark_config_file
 from jssp.core.models import JSP, BenchmarkConfig, ExperimentConfig, SolverResult, Solver, ExperimentResult
 from jssp.solvers.recursive import DFSSolver
@@ -13,6 +13,7 @@ import multiprocessing
 import statistics
 import json
 import csv
+import inspect
 from pathlib import Path
 import matplotlib.pyplot as plt
 
@@ -69,9 +70,9 @@ class Experiment:
             elapsed_times = [r.runtime for r in results if r.runtime is not None]
 
             min_times = [
-                r.solver_result.min_time 
-                for r in successful_runs 
-                if r.solver_result and r.solver_result.min_time is not None
+                r.solver_result.makespan
+                for r in successful_runs
+                if r.solver_result and r.solver_result.makespan is not None
             ]
             
             expanded_nodes = [r.expanded_nodes for r in successful_runs if r.expanded_nodes is not None]
@@ -95,7 +96,15 @@ class Experiment:
     def _worker_target(self, algo_class, instance, seed, hyperparameters, return_dict):
         """Target function executed in a separate process."""
         try:
-            processor = algo_class(instance, seed, hyperparameters)
+            parameters = inspect.signature(algo_class).parameters
+            solver_arguments = {
+                'jsp_instance': instance,
+                'hyperparameters': hyperparameters,
+            }
+            if 'seed' in parameters:
+                solver_arguments['seed'] = seed
+
+            processor = algo_class(**solver_arguments)
             processor.solve()
             return_dict['schedule_response'] = processor.schedule_response
             return_dict['min_time'] = processor.min_time
@@ -151,7 +160,10 @@ class Experiment:
 
                     self.results[instance.name].append(
                         ExperimentResult(
-                            SolverResult(schedule_response, min_time),
+                            SolverResult(
+                                schedule=schedule_response,
+                                makespan=min_time,
+                            ),
                             elapsed_time,
                             None,
                             success,
@@ -193,12 +205,30 @@ class Benchmark:
             )
             self.experiments.append(Experiment(exp_config))
 
-    def run_benchmarks(self):
+    @staticmethod
+    def _run_experiment(experiment):
+        tqdm.write(f'=== Running Experiment with algo: {experiment.algo_name} ===')
+        experiment.run_experiment()
+
+    def run_benchmarks(self, max_workers: int = 1):
+        if max_workers <= 0:
+            raise ValueError('max_workers must be greater than zero')
+
         start_time = time.perf_counter()
 
-        for experiment in tqdm(self.experiments, desc="Total Benchmarks", leave=True):
-            tqdm.write(f'=== Running Experiment with algo: {experiment.algo_name} ===')
-            experiment.run_experiment()
+        worker_count = min(max_workers, max(len(self.experiments), 1))
+        with ThreadPoolExecutor(max_workers=worker_count) as executor:
+            futures = [
+                executor.submit(self._run_experiment, experiment)
+                for experiment in self.experiments
+            ]
+            for future in tqdm(
+                as_completed(futures),
+                total=len(futures),
+                desc="Total Benchmarks",
+                leave=True,
+            ):
+                future.result()
 
         total_elapsed_time = time.perf_counter() - start_time
 
