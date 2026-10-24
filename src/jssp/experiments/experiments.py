@@ -13,6 +13,7 @@ import multiprocessing
 import statistics
 import json
 import csv
+import inspect
 from pathlib import Path
 import matplotlib.pyplot as plt
 
@@ -95,7 +96,15 @@ class Experiment:
     def _worker_target(self, algo_class, instance, seed, hyperparameters, return_dict):
         """Target function executed in a separate process."""
         try:
-            processor = algo_class(instance, seed, hyperparameters)
+            parameters = inspect.signature(algo_class).parameters
+            solver_arguments = {
+                'jsp_instance': instance,
+                'hyperparameters': hyperparameters,
+            }
+            if 'seed' in parameters:
+                solver_arguments['seed'] = seed
+
+            processor = algo_class(**solver_arguments)
             processor.solve()
             return_dict['schedule_response'] = processor.schedule_response
             return_dict['min_time'] = processor.min_time
