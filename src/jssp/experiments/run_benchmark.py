@@ -1,7 +1,10 @@
 import argparse
+from pathlib import Path
 
 from jssp.core.utils import read_benchmark_config_file
 from jssp.experiments.experiments import Benchmark
+
+INSTANCE_SETS = ('toy', 'easy', 'medium', 'hard')
 
 
 def parse_max_time(value: str) -> int | None:
@@ -46,6 +49,13 @@ def parse_arguments(arguments=None):
         metavar='SECONDS',
         help='Override the configured timeout with a positive number of seconds; use "none" for no timeout.'
     )
+    parser.add_argument(
+        '--instances',
+        nargs='+',
+        choices=(*INSTANCE_SETS, 'all'),
+        metavar='SET',
+        help='Instance sets to run; choose toy, easy, medium, hard, or all.'
+    )
 
     return parser.parse_args(arguments)
 
@@ -62,14 +72,19 @@ def create_benchmark(args):
 def main():
     args = parse_arguments()
 
-    print(f'Loading configuration from: {args.config}')
-    benchmark = create_benchmark(args)
+    instance_sets = INSTANCE_SETS if args.instances and 'all' in args.instances else args.instances or (None,)
+    for instance_set in instance_sets:
+        if instance_set:
+            args.config = str(Path(args.config).with_name(f'{instance_set}_instances_benchmark.yaml'))
 
-    if args.verbose:
-        print('Verbose mode enabled.')
+        print(f'Loading configuration from: {args.config}')
+        benchmark = create_benchmark(args)
 
-    benchmark.run_benchmarks()
-    benchmark.print_comparison_summary()
+        if args.verbose:
+            print('Verbose mode enabled.')
+
+        benchmark.run_benchmarks()
+        benchmark.print_comparison_summary()
 
 
 if __name__ == '__main__':
