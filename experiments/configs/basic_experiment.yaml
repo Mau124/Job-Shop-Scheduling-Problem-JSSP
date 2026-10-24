@@ -1,7 +1,0 @@
-experiment:
-  n_repeats: 10
-  max_time: 60
-  instances:
-    - '../../instances/generated/easy/example1.json'
-    - '../../instances/generated/easy/example2.json'
-    - '../../instances/generated/easy/example3.json'

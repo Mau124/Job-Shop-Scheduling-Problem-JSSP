@@ -1,13 +1,17 @@
 from heapq import heappop, heappush
 from itertools import count
 
-from ..core.models import JSP
+from ..core.models import JSP, Solver, SolverResult
 
 """
 Minimize makespan with A* and an admissible remaining-cost bound
 """
-class AStarSolver:
-    def __init__(self, jsp_instance: JSP, heuristic: str = "h2"):
+class AStarSolver(Solver):
+    def __init__(self, jsp_instance: JSP, seed: int, hyperparameters: dict):
+
+        self.hyperparameters = hyperparameters
+        heuristic = self.hyperparameters.get('heuristic', 'h2')
+
         if heuristic not in ("h1", "h2"):
             raise ValueError("heuristic must be 'h1' or 'h2'")
 

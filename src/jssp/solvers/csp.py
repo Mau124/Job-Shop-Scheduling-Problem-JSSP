@@ -1,14 +1,19 @@
-from ..core.models import JSP
+from ..core.models import JSP, Solver, SolverResult
 
 """
 Minimize makespan using start-time CSPs with MRV, LCV and forward checking
 """
-class CSPSolver:
-    def __init__(self, jsp_instance: JSP, use_mrv=True, use_lcv=True):
+class CSPSolver(Solver):
+    def __init__(self, jsp_instance: JSP, seed: int, hyperparameters: dict):
+
+        self.hyperparameters = hyperparameters
+
         self.num_jobs = jsp_instance.num_jobs
         self.num_machines = jsp_instance.num_machines
-        self.use_mrv = use_mrv
-        self.use_lcv = use_lcv
+
+        self.use_mrv = hyperparameters.get('use_mrv', True)
+        self.use_lcv = hyperparameters.get('use_lcv', True)
+
         # Variables follow job/step order; durations are indexed by machine.
         self.operations = [
             (job, step, machine, jsp_instance.dur[job][machine])
@@ -17,6 +22,8 @@ class CSPSolver:
                 jsp_instance.ops[job][:jsp_instance.max_ops[job]]
             )
         ]
+
+        self.result = None
 
     def solve(self):
         self.schedule_response = None
@@ -51,6 +58,12 @@ class CSPSolver:
                     machine_schedule.sort(key=lambda operation: operation[1])
                 self.schedule_response = schedule
                 self.min_time = bound
+
+                self.result = SolverResult(
+                    schedule = self.schedule_response,
+                    makespan = self.min_time
+                )
+
                 return
 
     def _compatible(self, operation, start, other, other_start):
