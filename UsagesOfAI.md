@@ -6,4 +6,4 @@
 * Code analysis / code review
 * Debugging
 * Add --max-time and flag handling
-
+* Add parallel execution

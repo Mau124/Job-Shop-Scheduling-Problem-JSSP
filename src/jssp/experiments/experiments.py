@@ -1,5 +1,5 @@
 
-from concurrent.futures import ThreadPoolExecutor, TimeoutError, ProcessPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from jssp.core.utils import read_exp_config_file, read_benchmark_config_file
 from jssp.core.models import JSP, BenchmarkConfig, ExperimentConfig, SolverResult, Solver, ExperimentResult
 from jssp.solvers.recursive import DFSSolver
@@ -205,12 +205,30 @@ class Benchmark:
             )
             self.experiments.append(Experiment(exp_config))
 
-    def run_benchmarks(self):
+    @staticmethod
+    def _run_experiment(experiment):
+        tqdm.write(f'=== Running Experiment with algo: {experiment.algo_name} ===')
+        experiment.run_experiment()
+
+    def run_benchmarks(self, max_workers: int = 1):
+        if max_workers <= 0:
+            raise ValueError('max_workers must be greater than zero')
+
         start_time = time.perf_counter()
 
-        for experiment in tqdm(self.experiments, desc="Total Benchmarks", leave=True):
-            tqdm.write(f'=== Running Experiment with algo: {experiment.algo_name} ===')
-            experiment.run_experiment()
+        worker_count = min(max_workers, max(len(self.experiments), 1))
+        with ThreadPoolExecutor(max_workers=worker_count) as executor:
+            futures = [
+                executor.submit(self._run_experiment, experiment)
+                for experiment in self.experiments
+            ]
+            for future in tqdm(
+                as_completed(futures),
+                total=len(futures),
+                desc="Total Benchmarks",
+                leave=True,
+            ):
+                future.result()
 
         total_elapsed_time = time.perf_counter() - start_time
 

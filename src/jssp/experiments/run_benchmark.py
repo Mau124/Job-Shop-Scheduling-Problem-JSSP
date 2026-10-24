@@ -1,4 +1,5 @@
 import argparse
+import os
 from pathlib import Path
 
 from jssp.core.utils import read_benchmark_config_file
@@ -24,6 +25,32 @@ def parse_max_time(value: str) -> int | None:
         )
 
     return max_time
+
+
+def parse_workers(value: str) -> int | str:
+    if value.lower() == 'max':
+        return 'max'
+
+    try:
+        workers = int(value)
+    except ValueError as error:
+        raise argparse.ArgumentTypeError(
+            'workers must be a positive integer or "max"'
+        ) from error
+
+    if workers <= 0:
+        raise argparse.ArgumentTypeError(
+            'workers must be greater than zero or "max"'
+        )
+
+    return workers
+
+
+def resolve_workers(value: int | str, experiment_count: int) -> int:
+    if value == 'max':
+        return min(os.cpu_count() or 1, max(experiment_count, 1))
+
+    return value
 
 
 def parse_arguments(arguments=None):
@@ -56,6 +83,13 @@ def parse_arguments(arguments=None):
         metavar='SET',
         help='Instance sets to run; choose toy, easy, medium, hard, or all.'
     )
+    parser.add_argument(
+        '--workers',
+        type=parse_workers,
+        default=1,
+        metavar='COUNT',
+        help='Concurrent solver experiments; use a positive integer or "max" (default: 1).'
+    )
 
     return parser.parse_args(arguments)
 
@@ -83,7 +117,8 @@ def main():
         if args.verbose:
             print('Verbose mode enabled.')
 
-        benchmark.run_benchmarks()
+        max_workers = resolve_workers(args.workers, len(benchmark.experiments))
+        benchmark.run_benchmarks(max_workers=max_workers)
         benchmark.print_comparison_summary()
 
 
