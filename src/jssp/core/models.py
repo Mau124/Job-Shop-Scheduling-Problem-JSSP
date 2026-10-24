@@ -69,7 +69,7 @@ class SolverConfig:
 @dataclass
 class ExperimentConfig:
     n_repeats: int
-    max_time: int
+    max_time: int | None
     instances: list[JSP]
     seeds: list[int]
     solver: SolverConfig
@@ -80,7 +80,7 @@ class BenchmarkConfig:
     solvers: list[SolverConfig]
     seeds: list[int]
     n_repeats: int
-    max_time: int
+    max_time: int | None
     instances: list[JSP]
     output_path: str
 
