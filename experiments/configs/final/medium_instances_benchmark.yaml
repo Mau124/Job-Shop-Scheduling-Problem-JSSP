@@ -1,0 +1,28 @@
+benchmark:
+  n_repeats: 10
+  max_time: 60
+  instances:
+    - '/Users/mau/Documents/Git/Job-Shop-Scheduling-Problem-JSP-/instances/benchmarks/medium' # To avoid problems, it's better to use full path
+  output: '/Users/mau/Documents/Git/Job-Shop-Scheduling-Problem-JSP-/outputs'
+  solvers:
+    - name: 'DFS'
+      type: 'DFSSolver'
+    - name: 'AStar - H1'
+      type: AStarSolver
+      hyperparameters:
+        heuristic: 'h1'
+    - name: 'AStar - H2'
+      type: AStarSolver
+      hyperparameters:
+        heuristic: 'h2'
+    - name: 'Tabu - n1'
+      type: TabuSolver
+      hyperparameters:
+        neighborhood: 'n1'
+    - name: 'Tabu - n2'
+      type: TabuSolver
+      hyperparameters:
+        neighborhood: 'n2'
+    - name: 'CSP'
+      type: CSPSolver 
+  seeds: [42, 100, 2026, 7, 19, 45, 23, 200, 9, 1]

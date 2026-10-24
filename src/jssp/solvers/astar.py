@@ -25,8 +25,6 @@ class AStarSolver(Solver):
         self.max_ops = jsp_instance.max_ops
         self.heuristic = heuristic
 
-        self.result = None
-
     def _heuristic(self, indexes, time, job_time):
         makespan = max(time, default=0)
         # h1 lets each job finish its remaining work without waiting for machines
@@ -82,10 +80,6 @@ class AStarSolver(Solver):
             if sum(indexes) == self.total_operations:
                 self.schedule_response = schedule
                 self.min_time = max(time, default=0)
-                self.result = SolverResult(
-                    schedule = self.schedule_response,
-                    makespan = self.min_time
-                )
                 return
 
             # Choosing only the next operation of each job preserves job order

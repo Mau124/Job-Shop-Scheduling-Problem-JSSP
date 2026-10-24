@@ -13,11 +13,25 @@ def read_benchmark_config_file(file_path) -> BenchmarkConfig:
 
     benchmark_data = data.get('benchmark', {})
     solvers = benchmark_data.get('solvers', [])
+    output_path = benchmark_data.get('output', '')
+
+    name = Path(file_path).name
 
     solvers_config = []
 
-    instances = [read_problem_instance(path.parent / Path(instance))
-                        for instance in benchmark_data.get('instances', [])]
+    resolved_instance_paths = []
+    for instance_entry in benchmark_data.get('instances', []):
+        full_path = path.parent / Path(instance_entry)
+
+        if full_path.is_dir():
+            folder_files = sorted([p for p in full_path.iterdir() if p.is_file()])
+            resolved_instance_paths.extend(folder_files)
+        elif full_path.is_file():
+            resolved_instance_paths.append(full_path)
+        else:
+            raise FileNotFoundError(f'Instance path not found: {full_path}')
+
+    instances = [read_problem_instance(p) for p in resolved_instance_paths]
     
     for solver in solvers:
         solvers_config.append(SolverConfig(
@@ -27,11 +41,13 @@ def read_benchmark_config_file(file_path) -> BenchmarkConfig:
         ))
 
     return BenchmarkConfig(
+        name = name,
         solvers = solvers_config,
         seeds = benchmark_data.get('seeds', []),
         n_repeats = int(benchmark_data.get('n_repeats', 1)),
         max_time = int(benchmark_data.get('max_time', 0)),
-        instances = instances
+        instances = instances,
+        output_path = output_path
     )
 
 def read_exp_config_file(file_path):

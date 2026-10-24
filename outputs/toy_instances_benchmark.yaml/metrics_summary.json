@@ -1,0 +1,912 @@
+{
+    "ft06": {
+        "DFS": {
+            "total_runs": 1,
+            "successful_runs": 0,
+            "success_rate": 0.0,
+            "elapsed_time": {
+                "mean": 60.18912937503774,
+                "variance": 0.0,
+                "std": 0.0
+            },
+            "min_time": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "expanded_nodes": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "max_frontier": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "error": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            }
+        },
+        "AStar - H1": {
+            "total_runs": 1,
+            "successful_runs": 0,
+            "success_rate": 0.0,
+            "elapsed_time": {
+                "mean": 60.1952922079945,
+                "variance": 0.0,
+                "std": 0.0
+            },
+            "min_time": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "expanded_nodes": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "max_frontier": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "error": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            }
+        },
+        "AStar - H2": {
+            "total_runs": 1,
+            "successful_runs": 0,
+            "success_rate": 0.0,
+            "elapsed_time": {
+                "mean": 21.692080708104186,
+                "variance": 0.0,
+                "std": 0.0
+            },
+            "min_time": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "expanded_nodes": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "max_frontier": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "error": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            }
+        },
+        "Tabu - n1": {
+            "total_runs": 1,
+            "successful_runs": 0,
+            "success_rate": 0.0,
+            "elapsed_time": {
+                "mean": 1.0512688750168309,
+                "variance": 0.0,
+                "std": 0.0
+            },
+            "min_time": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "expanded_nodes": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "max_frontier": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "error": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            }
+        },
+        "Tabu - n2": {
+            "total_runs": 1,
+            "successful_runs": 0,
+            "success_rate": 0.0,
+            "elapsed_time": {
+                "mean": 0.9984858749667183,
+                "variance": 0.0,
+                "std": 0.0
+            },
+            "min_time": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "expanded_nodes": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "max_frontier": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "error": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            }
+        },
+        "CSP": {
+            "total_runs": 1,
+            "successful_runs": 0,
+            "success_rate": 0.0,
+            "elapsed_time": {
+                "mean": 60.19348445907235,
+                "variance": 0.0,
+                "std": 0.0
+            },
+            "min_time": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "expanded_nodes": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "max_frontier": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "error": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            }
+        }
+    },
+    "ft10": {
+        "DFS": {
+            "total_runs": 1,
+            "successful_runs": 0,
+            "success_rate": 0.0,
+            "elapsed_time": {
+                "mean": 60.2218064579647,
+                "variance": 0.0,
+                "std": 0.0
+            },
+            "min_time": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "expanded_nodes": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "max_frontier": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "error": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            }
+        },
+        "AStar - H1": {
+            "total_runs": 1,
+            "successful_runs": 0,
+            "success_rate": 0.0,
+            "elapsed_time": {
+                "mean": 60.31402908405289,
+                "variance": 0.0,
+                "std": 0.0
+            },
+            "min_time": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "expanded_nodes": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "max_frontier": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "error": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            }
+        },
+        "AStar - H2": {
+            "total_runs": 1,
+            "successful_runs": 0,
+            "success_rate": 0.0,
+            "elapsed_time": {
+                "mean": 60.22048454196192,
+                "variance": 0.0,
+                "std": 0.0
+            },
+            "min_time": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "expanded_nodes": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "max_frontier": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "error": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            }
+        },
+        "Tabu - n1": {
+            "total_runs": 1,
+            "successful_runs": 0,
+            "success_rate": 0.0,
+            "elapsed_time": {
+                "mean": 4.7925771670416,
+                "variance": 0.0,
+                "std": 0.0
+            },
+            "min_time": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "expanded_nodes": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "max_frontier": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "error": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            }
+        },
+        "Tabu - n2": {
+            "total_runs": 1,
+            "successful_runs": 0,
+            "success_rate": 0.0,
+            "elapsed_time": {
+                "mean": 4.764481708058156,
+                "variance": 0.0,
+                "std": 0.0
+            },
+            "min_time": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "expanded_nodes": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "max_frontier": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "error": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            }
+        },
+        "CSP": {
+            "total_runs": 1,
+            "successful_runs": 0,
+            "success_rate": 0.0,
+            "elapsed_time": {
+                "mean": 60.21982737502549,
+                "variance": 0.0,
+                "std": 0.0
+            },
+            "min_time": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "expanded_nodes": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "max_frontier": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "error": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            }
+        }
+    },
+    "ft20": {
+        "DFS": {
+            "total_runs": 1,
+            "successful_runs": 0,
+            "success_rate": 0.0,
+            "elapsed_time": {
+                "mean": 60.21651524992194,
+                "variance": 0.0,
+                "std": 0.0
+            },
+            "min_time": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "expanded_nodes": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "max_frontier": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "error": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            }
+        },
+        "AStar - H1": {
+            "total_runs": 1,
+            "successful_runs": 0,
+            "success_rate": 0.0,
+            "elapsed_time": {
+                "mean": 60.3127025840804,
+                "variance": 0.0,
+                "std": 0.0
+            },
+            "min_time": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "expanded_nodes": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "max_frontier": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "error": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            }
+        },
+        "AStar - H2": {
+            "total_runs": 1,
+            "successful_runs": 0,
+            "success_rate": 0.0,
+            "elapsed_time": {
+                "mean": 60.31693745905068,
+                "variance": 0.0,
+                "std": 0.0
+            },
+            "min_time": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "expanded_nodes": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "max_frontier": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "error": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            }
+        },
+        "Tabu - n1": {
+            "total_runs": 1,
+            "successful_runs": 0,
+            "success_rate": 0.0,
+            "elapsed_time": {
+                "mean": 5.397357792011462,
+                "variance": 0.0,
+                "std": 0.0
+            },
+            "min_time": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "expanded_nodes": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "max_frontier": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "error": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            }
+        },
+        "Tabu - n2": {
+            "total_runs": 1,
+            "successful_runs": 0,
+            "success_rate": 0.0,
+            "elapsed_time": {
+                "mean": 5.418190500000492,
+                "variance": 0.0,
+                "std": 0.0
+            },
+            "min_time": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "expanded_nodes": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "max_frontier": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "error": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            }
+        },
+        "CSP": {
+            "total_runs": 1,
+            "successful_runs": 0,
+            "success_rate": 0.0,
+            "elapsed_time": {
+                "mean": 60.21956245799083,
+                "variance": 0.0,
+                "std": 0.0
+            },
+            "min_time": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "expanded_nodes": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "max_frontier": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "error": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            }
+        }
+    },
+    "la24": {
+        "DFS": {
+            "total_runs": 1,
+            "successful_runs": 0,
+            "success_rate": 0.0,
+            "elapsed_time": {
+                "mean": 60.22508458397351,
+                "variance": 0.0,
+                "std": 0.0
+            },
+            "min_time": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "expanded_nodes": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "max_frontier": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "error": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            }
+        },
+        "AStar - H1": {
+            "total_runs": 1,
+            "successful_runs": 0,
+            "success_rate": 0.0,
+            "elapsed_time": {
+                "mean": 60.314411791972816,
+                "variance": 0.0,
+                "std": 0.0
+            },
+            "min_time": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "expanded_nodes": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "max_frontier": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "error": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            }
+        },
+        "AStar - H2": {
+            "total_runs": 1,
+            "successful_runs": 0,
+            "success_rate": 0.0,
+            "elapsed_time": {
+                "mean": 60.3102943750564,
+                "variance": 0.0,
+                "std": 0.0
+            },
+            "min_time": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "expanded_nodes": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "max_frontier": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "error": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            }
+        },
+        "Tabu - n1": {
+            "total_runs": 1,
+            "successful_runs": 0,
+            "success_rate": 0.0,
+            "elapsed_time": {
+                "mean": 10.940251042018645,
+                "variance": 0.0,
+                "std": 0.0
+            },
+            "min_time": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "expanded_nodes": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "max_frontier": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "error": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            }
+        },
+        "Tabu - n2": {
+            "total_runs": 1,
+            "successful_runs": 0,
+            "success_rate": 0.0,
+            "elapsed_time": {
+                "mean": 10.993772084009834,
+                "variance": 0.0,
+                "std": 0.0
+            },
+            "min_time": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "expanded_nodes": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "max_frontier": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "error": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            }
+        },
+        "CSP": {
+            "total_runs": 1,
+            "successful_runs": 0,
+            "success_rate": 0.0,
+            "elapsed_time": {
+                "mean": 60.22023466601968,
+                "variance": 0.0,
+                "std": 0.0
+            },
+            "min_time": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "expanded_nodes": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "max_frontier": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "error": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            }
+        }
+    },
+    "la27": {
+        "DFS": {
+            "total_runs": 1,
+            "successful_runs": 0,
+            "success_rate": 0.0,
+            "elapsed_time": {
+                "mean": 60.22180754202418,
+                "variance": 0.0,
+                "std": 0.0
+            },
+            "min_time": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "expanded_nodes": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "max_frontier": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "error": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            }
+        },
+        "AStar - H1": {
+            "total_runs": 1,
+            "successful_runs": 0,
+            "success_rate": 0.0,
+            "elapsed_time": {
+                "mean": 60.31686062493827,
+                "variance": 0.0,
+                "std": 0.0
+            },
+            "min_time": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "expanded_nodes": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "max_frontier": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "error": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            }
+        },
+        "AStar - H2": {
+            "total_runs": 1,
+            "successful_runs": 0,
+            "success_rate": 0.0,
+            "elapsed_time": {
+                "mean": 60.304539749980904,
+                "variance": 0.0,
+                "std": 0.0
+            },
+            "min_time": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "expanded_nodes": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "max_frontier": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "error": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            }
+        },
+        "Tabu - n1": {
+            "total_runs": 1,
+            "successful_runs": 0,
+            "success_rate": 0.0,
+            "elapsed_time": {
+                "mean": 19.406119624967687,
+                "variance": 0.0,
+                "std": 0.0
+            },
+            "min_time": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "expanded_nodes": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "max_frontier": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "error": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            }
+        },
+        "Tabu - n2": {
+            "total_runs": 1,
+            "successful_runs": 0,
+            "success_rate": 0.0,
+            "elapsed_time": {
+                "mean": 19.43064333300572,
+                "variance": 0.0,
+                "std": 0.0
+            },
+            "min_time": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "expanded_nodes": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "max_frontier": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "error": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            }
+        },
+        "CSP": {
+            "total_runs": 1,
+            "successful_runs": 0,
+            "success_rate": 0.0,
+            "elapsed_time": {
+                "mean": 60.22103991708718,
+                "variance": 0.0,
+                "std": 0.0
+            },
+            "min_time": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "expanded_nodes": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "max_frontier": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            },
+            "error": {
+                "mean": null,
+                "variance": null,
+                "std": null
+            }
+        }
+    }
+}

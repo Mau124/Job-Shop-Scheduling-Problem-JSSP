@@ -59,7 +59,8 @@ class Solver(ABC):
             )
 
     def __init__(self, jsp_instance: JSP, seed: int, hyperparameters: dict):
-        pass
+        self.expanded_nodes = None
+        self.max_frontier = None
 
     @abstractmethod
     def solve():
@@ -81,11 +82,13 @@ class ExperimentConfig:
 
 @dataclass
 class BenchmarkConfig:
+    name: str
     solvers: list[SolverConfig]
     seeds: list[int]
     n_repeats: int
     max_time: int
     instances: list[JSP]
+    output_path: str
 
 ''' Instance example
 instance = JSPInstance(
