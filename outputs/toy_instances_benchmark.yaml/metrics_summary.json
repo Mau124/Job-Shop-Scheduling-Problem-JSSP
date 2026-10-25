@@ -5,7 +5,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.18912937503774,
+                "mean": 60.98922179103829,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -35,7 +35,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.1952922079945,
+                "mean": 60.952850249945186,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -65,7 +65,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 21.692080708104186,
+                "mean": 61.024921374977566,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -95,7 +95,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 1.0512688750168309,
+                "mean": 3.462908250046894,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -125,7 +125,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 0.9984858749667183,
+                "mean": 3.3821921249618754,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -155,7 +155,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.19348445907235,
+                "mean": 60.96987695898861,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -187,7 +187,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.2218064579647,
+                "mean": 60.91799170803279,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -217,7 +217,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.31402908405289,
+                "mean": 60.88396024995018,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -247,7 +247,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.22048454196192,
+                "mean": 60.848867082968354,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -277,7 +277,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 4.7925771670416,
+                "mean": 14.4455778329866,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -307,7 +307,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 4.764481708058156,
+                "mean": 14.561607624986209,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -337,7 +337,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.21982737502549,
+                "mean": 60.96520054200664,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -369,7 +369,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.21651524992194,
+                "mean": 60.91358220798429,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -399,7 +399,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.3127025840804,
+                "mean": 60.71698191692121,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -429,7 +429,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.31693745905068,
+                "mean": 60.709255249937996,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -459,7 +459,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 5.397357792011462,
+                "mean": 16.082762208068743,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -489,7 +489,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 5.418190500000492,
+                "mean": 16.28998124995269,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -519,7 +519,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.21956245799083,
+                "mean": 60.87766237498727,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -551,7 +551,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.22508458397351,
+                "mean": 60.93853250006214,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -581,7 +581,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.314411791972816,
+                "mean": 60.76922670798376,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -611,7 +611,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.3102943750564,
+                "mean": 60.79338062508032,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -641,7 +641,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 10.940251042018645,
+                "mean": 30.073501917067915,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -671,7 +671,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 10.993772084009834,
+                "mean": 29.665486583020538,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -701,7 +701,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.22023466601968,
+                "mean": 60.93051666696556,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -733,7 +733,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.22180754202418,
+                "mean": 60.84864275006112,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -763,7 +763,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.31686062493827,
+                "mean": 60.67669437499717,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -793,7 +793,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.304539749980904,
+                "mean": 60.768632833031006,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -823,7 +823,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 19.406119624967687,
+                "mean": 50.80354220804293,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -853,7 +853,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 19.43064333300572,
+                "mean": 50.770314750028774,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -883,7 +883,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.22103991708718,
+                "mean": 60.84956754196901,
                 "variance": 0.0,
                 "std": 0.0
             },
