@@ -5,3 +5,5 @@
 * How to make a method run with a timeout
 * Code analysis / code review
 * Debugging
+* Add --max-time and flag handling
+* Add parallel execution

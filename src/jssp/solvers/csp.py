@@ -4,7 +4,8 @@ from ..core.models import JSP, Solver, SolverResult
 Minimize makespan using start-time CSPs with MRV, LCV and forward checking
 """
 class CSPSolver(Solver):
-    def __init__(self, jsp_instance: JSP, seed: int, hyperparameters: dict):
+    def __init__(self, jsp_instance: JSP, hyperparameters: dict):
+        super().__init__(jsp_instance, hyperparameters)
 
         self.hyperparameters = hyperparameters
 
@@ -28,6 +29,9 @@ class CSPSolver(Solver):
     def solve(self):
         self.schedule_response = None
         self.min_time = float("inf")
+        self.result = None
+        self.expanded_nodes = 0
+        self.max_frontier = 0
 
         job_loads = [0] * self.num_jobs
         machine_loads = [0] * self.num_machines
@@ -49,6 +53,8 @@ class CSPSolver(Solver):
                 # Leave enough time for this operation and its job's successors.
                 domains[operation] = list(range(first_start, bound - remaining + 1))
 
+            self._frontier_size = 1
+            self.max_frontier = max(self.max_frontier, self._frontier_size)
             assignment = self._backtrack({}, domains)
             if assignment is not None:
                 schedule = [[] for _ in range(self.num_machines)]
@@ -79,6 +85,9 @@ class CSPSolver(Solver):
         return True
 
     def _backtrack(self, assignment, domains):
+        self._frontier_size -= 1
+        self.expanded_nodes += 1
+
         if not domains:
             return assignment
 
@@ -102,6 +111,9 @@ class CSPSolver(Solver):
                 ),
             )
 
+        self._frontier_size += len(values)
+        self.max_frontier = max(self.max_frontier, self._frontier_size)
+
         for start in values:
             # Domains already satisfy earlier assignments. Copy and filter for
             # this assignment so failed branches cannot affect their siblings.
@@ -113,6 +125,7 @@ class CSPSolver(Solver):
                 for other, domain in domains.items() if other != operation
             }
             if any(not domain for domain in next_domains.values()):
+                self._frontier_size -= 1
                 continue
             result = self._backtrack({**assignment, operation: start}, next_domains)
             if result is not None:

@@ -7,7 +7,8 @@ from ..core.models import JSP, Solver, SolverResult
 Minimize makespan with A* and an admissible remaining-cost bound
 """
 class AStarSolver(Solver):
-    def __init__(self, jsp_instance: JSP, seed: int, hyperparameters: dict):
+    def __init__(self, jsp_instance: JSP, hyperparameters: dict):
+        super().__init__(jsp_instance, hyperparameters)
 
         self.hyperparameters = hyperparameters
         heuristic = self.hyperparameters.get('heuristic', 'h2')
@@ -24,6 +25,7 @@ class AStarSolver(Solver):
         self.total_operations = jsp_instance.total_operations
         self.max_ops = jsp_instance.max_ops
         self.heuristic = heuristic
+        self.result = None
 
     def _heuristic(self, indexes, time, job_time):
         makespan = max(time, default=0)
@@ -58,6 +60,9 @@ class AStarSolver(Solver):
     def solve(self):
         self.schedule_response = None
         self.min_time = float("inf")
+        self.result = None
+        self.expanded_nodes = 0
+        self.max_frontier = 0
 
         indexes = [0] * self.num_jobs  # Next operation index for each job
         time = [0] * self.num_machines  # Finish time of each machine's last operation
@@ -71,15 +76,21 @@ class AStarSolver(Solver):
             (self._heuristic(indexes, time, job_time), next(order),
              indexes, time, job_time, schedule)
         ]
+        self.max_frontier = len(frontier)
         seen = {(tuple(indexes), tuple(time), tuple(job_time))}
 
         while frontier:
             _, _, indexes, time, job_time, schedule = heappop(frontier)
+            self.expanded_nodes += 1
             # Check goals when popped: the first complete schedule has minimum
             # makespan because no queued state has a smaller completion bound
             if sum(indexes) == self.total_operations:
                 self.schedule_response = schedule
                 self.min_time = max(time, default=0)
+                self.result = SolverResult(
+                    schedule=self.schedule_response,
+                    makespan=self.min_time,
+                )
                 return
 
             # Choosing only the next operation of each job preserves job order
@@ -120,3 +131,5 @@ class AStarSolver(Solver):
                     (g + h, next(order), next_indexes, next_time,
                      next_job_time, next_schedule),
                 )
+
+            self.max_frontier = max(self.max_frontier, len(frontier))

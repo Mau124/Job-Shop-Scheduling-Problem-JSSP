@@ -15,6 +15,7 @@ from ..core.models import SolverResult, Solver, JSP
 class TabuSolver(Solver):
 
     def __init__(self, jsp_instance: JSP, seed: int, hyperparameters: dict):
+        super().__init__(jsp_instance, hyperparameters)
 
         self.jsp_instance = jsp_instance
         self.seed = seed
@@ -29,7 +30,7 @@ class TabuSolver(Solver):
         elif self.neighbourhood_type == 'n2':
             self.neighbourhood = self.n2_block_boundary
         else:
-            raise ValueError(f'Parameter neighbourhood must be either n1 or n2')
+            raise ValueError('Parameter neighbourhood must be either n1 or n2')
 
         self.schedule_response = None
         self.min_time = None
@@ -37,6 +38,11 @@ class TabuSolver(Solver):
         self.result = None
 
     def solve(self):
+        self.schedule_response = None
+        self.min_time = None
+        self.result = None
+        self.expanded_nodes = 0
+        self.max_frontier = 0
 
         ev = self.Evaluator(self, self.jsp_instance)
 
@@ -69,6 +75,8 @@ class TabuSolver(Solver):
 
         self.schedule_response = schedule
         self.min_time = c_best
+        self.expanded_nodes = ev.count
+        self.max_frontier = max_frontier
 
         self.result = SolverResult(
             schedule = self.schedule_response,

@@ -46,19 +46,13 @@ class Solver(ABC):
                 f"in its __init__ signature to match the Solver contract."
             )
 
-        if 'seed' not in parameters:
-            raise TypeError(
-                f"Error: Class '{cls.__name__}' must include 'seed' "
-                f"in its __init__ signature to match the Solver contract."
-            )
-
         if 'hyperparameters' not in parameters:
             raise TypeError(
                 f"Error: Class '{cls.__name__}' must include 'hyperparameters' "
                 f"in its __init__ signature to match the Solver contract."
             )
 
-    def __init__(self, jsp_instance: JSP, seed: int, hyperparameters: dict):
+    def __init__(self, jsp_instance: JSP, hyperparameters: dict):
         self.expanded_nodes = None
         self.max_frontier = None
 
@@ -75,7 +69,7 @@ class SolverConfig:
 @dataclass
 class ExperimentConfig:
     n_repeats: int
-    max_time: int
+    max_time: int | None
     instances: list[JSP]
     seeds: list[int]
     solver: SolverConfig
@@ -86,7 +80,7 @@ class BenchmarkConfig:
     solvers: list[SolverConfig]
     seeds: list[int]
     n_repeats: int
-    max_time: int
+    max_time: int | None
     instances: list[JSP]
     output_path: str
 

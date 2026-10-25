@@ -5,7 +5,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.18912937503774,
+                "mean": 60.478326875017956,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -35,7 +35,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.1952922079945,
+                "mean": 60.497002707910724,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -62,27 +62,27 @@
         },
         "AStar - H2": {
             "total_runs": 1,
-            "successful_runs": 0,
-            "success_rate": 0.0,
+            "successful_runs": 1,
+            "success_rate": 1.0,
             "elapsed_time": {
-                "mean": 21.692080708104186,
+                "mean": 33.3200732920086,
                 "variance": 0.0,
                 "std": 0.0
             },
             "min_time": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 55,
+                "variance": 0.0,
+                "std": 0.0
             },
             "expanded_nodes": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 509559,
+                "variance": 0.0,
+                "std": 0.0
             },
             "max_frontier": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 1573681,
+                "variance": 0.0,
+                "std": 0.0
             },
             "error": {
                 "mean": null,
@@ -92,27 +92,27 @@
         },
         "Tabu - n1": {
             "total_runs": 1,
-            "successful_runs": 0,
-            "success_rate": 0.0,
+            "successful_runs": 1,
+            "success_rate": 1.0,
             "elapsed_time": {
-                "mean": 1.0512688750168309,
+                "mean": 1.9254160829586908,
                 "variance": 0.0,
                 "std": 0.0
             },
             "min_time": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 58,
+                "variance": 0.0,
+                "std": 0.0
             },
             "expanded_nodes": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 32491,
+                "variance": 0.0,
+                "std": 0.0
             },
             "max_frontier": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 30,
+                "variance": 0.0,
+                "std": 0.0
             },
             "error": {
                 "mean": null,
@@ -122,27 +122,27 @@
         },
         "Tabu - n2": {
             "total_runs": 1,
-            "successful_runs": 0,
-            "success_rate": 0.0,
+            "successful_runs": 1,
+            "success_rate": 1.0,
             "elapsed_time": {
-                "mean": 0.9984858749667183,
+                "mean": 1.2158600830007344,
                 "variance": 0.0,
                 "std": 0.0
             },
             "min_time": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 55,
+                "variance": 0.0,
+                "std": 0.0
             },
             "expanded_nodes": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 5093,
+                "variance": 0.0,
+                "std": 0.0
             },
             "max_frontier": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 7,
+                "variance": 0.0,
+                "std": 0.0
             },
             "error": {
                 "mean": null,
@@ -155,7 +155,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.19348445907235,
+                "mean": 60.500377791933715,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -187,7 +187,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.2218064579647,
+                "mean": 60.575898083043285,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -217,7 +217,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.31402908405289,
+                "mean": 60.46953579201363,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -247,7 +247,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.22048454196192,
+                "mean": 60.5151908750413,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -274,27 +274,27 @@
         },
         "Tabu - n1": {
             "total_runs": 1,
-            "successful_runs": 0,
-            "success_rate": 0.0,
+            "successful_runs": 1,
+            "success_rate": 1.0,
             "elapsed_time": {
-                "mean": 4.7925771670416,
+                "mean": 8.248667292064056,
                 "variance": 0.0,
                 "std": 0.0
             },
             "min_time": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 1472,
+                "variance": 0.0,
+                "std": 0.0
             },
             "expanded_nodes": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 90541,
+                "variance": 0.0,
+                "std": 0.0
             },
             "max_frontier": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 86,
+                "variance": 0.0,
+                "std": 0.0
             },
             "error": {
                 "mean": null,
@@ -304,27 +304,27 @@
         },
         "Tabu - n2": {
             "total_runs": 1,
-            "successful_runs": 0,
-            "success_rate": 0.0,
+            "successful_runs": 1,
+            "success_rate": 1.0,
             "elapsed_time": {
-                "mean": 4.764481708058156,
+                "mean": 2.735936916084029,
                 "variance": 0.0,
                 "std": 0.0
             },
             "min_time": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 957,
+                "variance": 0.0,
+                "std": 0.0
             },
             "expanded_nodes": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 20905,
+                "variance": 0.0,
+                "std": 0.0
             },
             "max_frontier": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 12,
+                "variance": 0.0,
+                "std": 0.0
             },
             "error": {
                 "mean": null,
@@ -337,7 +337,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.21982737502549,
+                "mean": 60.55465175001882,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -369,7 +369,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.21651524992194,
+                "mean": 60.56540816696361,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -399,7 +399,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.3127025840804,
+                "mean": 60.465464291977696,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -429,7 +429,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.31693745905068,
+                "mean": 60.53275220899377,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -456,27 +456,27 @@
         },
         "Tabu - n1": {
             "total_runs": 1,
-            "successful_runs": 0,
-            "success_rate": 0.0,
+            "successful_runs": 1,
+            "success_rate": 1.0,
             "elapsed_time": {
-                "mean": 5.397357792011462,
+                "mean": 8.66075716598425,
                 "variance": 0.0,
                 "std": 0.0
             },
             "min_time": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 1566,
+                "variance": 0.0,
+                "std": 0.0
             },
             "expanded_nodes": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 97566,
+                "variance": 0.0,
+                "std": 0.0
             },
             "max_frontier": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 95,
+                "variance": 0.0,
+                "std": 0.0
             },
             "error": {
                 "mean": null,
@@ -486,27 +486,27 @@
         },
         "Tabu - n2": {
             "total_runs": 1,
-            "successful_runs": 0,
-            "success_rate": 0.0,
+            "successful_runs": 1,
+            "success_rate": 1.0,
             "elapsed_time": {
-                "mean": 5.418190500000492,
+                "mean": 4.29765312501695,
                 "variance": 0.0,
                 "std": 0.0
             },
             "min_time": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 1176,
+                "variance": 0.0,
+                "std": 0.0
             },
             "expanded_nodes": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 34322,
+                "variance": 0.0,
+                "std": 0.0
             },
             "max_frontier": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 12,
+                "variance": 0.0,
+                "std": 0.0
             },
             "error": {
                 "mean": null,
@@ -519,7 +519,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.21956245799083,
+                "mean": 60.55541329202242,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -551,7 +551,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.22508458397351,
+                "mean": 60.451309208991006,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -581,7 +581,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.314411791972816,
+                "mean": 60.44716029101983,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -611,7 +611,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.3102943750564,
+                "mean": 60.45216133305803,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -638,27 +638,27 @@
         },
         "Tabu - n1": {
             "total_runs": 1,
-            "successful_runs": 0,
-            "success_rate": 0.0,
+            "successful_runs": 1,
+            "success_rate": 1.0,
             "elapsed_time": {
-                "mean": 10.940251042018645,
+                "mean": 17.166680791066028,
                 "variance": 0.0,
                 "std": 0.0
             },
             "min_time": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 1338,
+                "variance": 0.0,
+                "std": 0.0
             },
             "expanded_nodes": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 145181,
+                "variance": 0.0,
+                "std": 0.0
             },
             "max_frontier": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 137,
+                "variance": 0.0,
+                "std": 0.0
             },
             "error": {
                 "mean": null,
@@ -668,27 +668,27 @@
         },
         "Tabu - n2": {
             "total_runs": 1,
-            "successful_runs": 0,
-            "success_rate": 0.0,
+            "successful_runs": 1,
+            "success_rate": 1.0,
             "elapsed_time": {
-                "mean": 10.993772084009834,
+                "mean": 2.9839686659397557,
                 "variance": 0.0,
                 "std": 0.0
             },
             "min_time": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 960,
+                "variance": 0.0,
+                "std": 0.0
             },
             "expanded_nodes": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 17115,
+                "variance": 0.0,
+                "std": 0.0
             },
             "max_frontier": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 16,
+                "variance": 0.0,
+                "std": 0.0
             },
             "error": {
                 "mean": null,
@@ -701,7 +701,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.22023466601968,
+                "mean": 60.456521832966246,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -733,7 +733,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.22180754202418,
+                "mean": 60.48146316700149,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -763,7 +763,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.31686062493827,
+                "mean": 60.470299375010654,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -793,7 +793,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.304539749980904,
+                "mean": 60.46490287501365,
                 "variance": 0.0,
                 "std": 0.0
             },
@@ -820,27 +820,27 @@
         },
         "Tabu - n1": {
             "total_runs": 1,
-            "successful_runs": 0,
-            "success_rate": 0.0,
+            "successful_runs": 1,
+            "success_rate": 1.0,
             "elapsed_time": {
-                "mean": 19.406119624967687,
+                "mean": 30.153995875036344,
                 "variance": 0.0,
                 "std": 0.0
             },
             "min_time": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 1904,
+                "variance": 0.0,
+                "std": 0.0
             },
             "expanded_nodes": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 196651,
+                "variance": 0.0,
+                "std": 0.0
             },
             "max_frontier": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 186,
+                "variance": 0.0,
+                "std": 0.0
             },
             "error": {
                 "mean": null,
@@ -850,27 +850,27 @@
         },
         "Tabu - n2": {
             "total_runs": 1,
-            "successful_runs": 0,
-            "success_rate": 0.0,
+            "successful_runs": 1,
+            "success_rate": 1.0,
             "elapsed_time": {
-                "mean": 19.43064333300572,
+                "mean": 5.365923458011821,
                 "variance": 0.0,
                 "std": 0.0
             },
             "min_time": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 1318,
+                "variance": 0.0,
+                "std": 0.0
             },
             "expanded_nodes": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 27439,
+                "variance": 0.0,
+                "std": 0.0
             },
             "max_frontier": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 20,
+                "variance": 0.0,
+                "std": 0.0
             },
             "error": {
                 "mean": null,
@@ -883,7 +883,7 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.22103991708718,
+                "mean": 60.48237075004727,
                 "variance": 0.0,
                 "std": 0.0
             },
