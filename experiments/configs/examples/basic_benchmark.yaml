@@ -20,11 +20,11 @@ benchmark:
     - name: 'Tabu - n1'
       type: TabuSolver
       hyperparameters:
-        neighborhood: 'n1'
+        neighbourhood: 'n1'
     - name: 'Tabu - n2'
       type: TabuSolver
       hyperparameters:
-        neighborhood: 'n2'
+        neighbourhood: 'n2'
     - name: 'CSP'
       type: CSPSolver 
   seeds: [42, 100, 2026, 7, 19, 45, 23, 200, 9, 1]

@@ -8,9 +8,15 @@ from jssp.solvers.csp import CSPSolver
 
 @pytest.mark.parametrize("use_heuristics", [True, False])
 def test_example1(use_heuristics):
-    path = Path(__file__).resolve().parents[1] / "instances/generated/easy/example1.json"
+    path = Path(__file__).resolve().parents[1] / "instances/generated/simple/example1.json"
     instance = read_problem_instance(path)
-    solver = CSPSolver(instance, use_mrv=use_heuristics, use_lcv=use_heuristics)
+    solver = CSPSolver(
+        instance,
+        hyperparameters={
+            "use_mrv": use_heuristics,
+            "use_lcv": use_heuristics,
+        },
+    )
     assert solver.solve() is None
     assert solver.min_time == 9
     assert solver.schedule_response is not None

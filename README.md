@@ -1,26 +1,58 @@
 # Job Shop Scheduling Problem (JSSP)
 
-This repository is a Python research implementation of the Job Shop
-Scheduling Problem (JSSP). Given jobs with ordered operations and shared
-machines, the solvers build feasible schedules that minimize the makespan.
+This repository is a Python research project for the Job Shop Scheduling
+Problem (JSSP). Given jobs with ordered operations and shared machines, the
+solvers build feasible schedules that minimize the makespan.
 
-The project includes exact search methods, a tabu-search heuristic, JSON
-problem instances, a YAML-driven experiment runner, schedule plotting, and a
-notebook with worked examples.
+The project includes four solver implementations, JSON problem instances,
+YAML-driven experiments and benchmarks, multiprocessing timeouts, metrics,
+plots, and example notebooks.
 
-## Implemented solvers
+## Solvers
 
-| Solver | Entry point | Approach |
+The solver constructors are:
+
+```python
+AStarSolver(jsp_instance, hyperparameters)
+DFSSolver(jsp_instance, hyperparameters)
+CSPSolver(jsp_instance, hyperparameters)
+TabuSolver(jsp_instance, seed, hyperparameters)
+```
+
+Tabu search uses the seed when generating its
+initial solution. The experiment runner inspects each constructor and only
+passes a seed when the solver accepts one.
+
+The implemented solvers are:
+
+- `DFSSolver`: exhaustive recursive depth-first search;
+- `AStarSolver`: A* search with the `h1` or `h2` heuristic;
+- `CSPSolver`: constraint search with optional MRV and LCV;
+- `TabuSolver`: tabu search with the `n1` or `n2` neighbourhood.
+
+`solve()` returns `None`. After it finishes, each solver exposes
+`schedule_response` and `min_time`. Schedules are grouped by machine and
+contain `(job_id, start_time, end_time)` tuples. Each solver also populates a
+`SolverResult` in `result`.
+
+The solver-level instrumentation attributes are `expanded_nodes` and
+`max_frontier`. Both are `None` after construction, reset on every `solve()`
+call, and populated with integers after a successful run. Their meanings are
+specific to each search strategy:
+
+| Solver | `expanded_nodes` | `max_frontier` |
 | --- | --- | --- |
-| Depth-first search | `DFSSolver` | Exhaustive recursive search |
-| A* | `AStarSolver` | Search with the `h1` or `h2` admissible bound |
-| Constraint satisfaction | `CSPSolver` | MRV/LCV backtracking |
-| Tabu search | `tabu_search` | `N1`/`N2` neighborhood search |
+| A* | States removed from the priority queue | Largest priority queue |
+| DFS | Recursive schedule states visited | Largest pending DFS frontier |
+| CSP | Backtracking states across makespan bounds | Largest pending value frontier |
+| Tabu | Schedule evaluations | Largest generated neighbourhood |
 
-The class-based solvers expose their results after `solve()` through
-`schedule_response` and `min_time`. `tabu_search` returns a `SolverResult`.
-Schedules are grouped by machine and use
-`(job_id, start_time, end_time)` tuples.
+Supported hyperparameters and their defaults are:
+
+- A*: `heuristic` set to `h1` or `h2` (default: `h2`);
+- CSP: `use_mrv` and `use_lcv` booleans (both default to `True`);
+- tabu search: `neighbourhood` (default: `n1`), `maxiter` (default: `1000`),
+    and `maxt` (default: `8`).
 
 ## Requirements
 
@@ -37,20 +69,25 @@ cd Job-Shop-Scheduling-Problem-JSSP
 uv sync
 ```
 
-`uv` creates the `.venv` environment and installs the local `jssp` package.
-The commands below use `uv run`, so activating the environment is optional.
+`uv` creates `.venv` and installs the local `jssp` package. The commands below
+use `uv run`, so activating the environment is optional.
 
 ## Quick start
 
-Run A* with the stronger `h2` heuristic on the included three-job example:
+Run A* with the `h2` heuristic on the included three-job instance:
 
 ```bash
 uv run python - <<'PY'
 from jssp.core.utils import read_problem_instance
 from jssp.solvers.astar import AStarSolver
 
-instance = read_problem_instance("instances/generated/easy/example1.json")
-solver = AStarSolver(instance, heuristic="h2")
+instance = read_problem_instance(
+    "instances/generated/simple/example1.json"
+)
+solver = AStarSolver(
+    instance,
+    hyperparameters={"heuristic": "h2"},
+)
 solver.solve()
 
 print(f"Makespan: {solver.min_time}")
@@ -58,119 +95,186 @@ print(f"Schedule: {solver.schedule_response}")
 PY
 ```
 
-Expected makespan:
+The expected makespan is `9`.
 
-```text
-9
-```
-
-The other class-based solvers follow the same pattern:
+Construct the other solvers as follows:
 
 ```python
 from jssp.solvers.csp import CSPSolver
 from jssp.solvers.recursive import DFSSolver
+from jssp.solvers.tabu import TabuSolver
 
-dfs_solver = DFSSolver(instance)
-csp_solver = CSPSolver(instance, use_mrv=True, use_lcv=True)
-```
-
-Tabu search uses a function-based API:
-
-```python
-from jssp.solvers.tabu import n2_block_boundary, tabu_search
-
-result = tabu_search(
+dfs = DFSSolver(instance, hyperparameters={})
+csp = CSPSolver(
     instance,
-    neighbourhood=n2_block_boundary,
-    maxiter=1000,
-    maxt=8,
-    seed=42,
+    hyperparameters={"use_mrv": True, "use_lcv": True},
 )
-print(result.makespan)
+tabu = TabuSolver(
+    instance,
+    seed=42,
+    hyperparameters={
+        "neighbourhood": "n2",
+        "maxiter": 1000,
+        "maxt": 8,
+    },
+)
 ```
-
-The tabu implementation also provides `n1_adjacent_swaps` as an alternative
-neighborhood.
 
 ## Problem instances
 
-Instances are JSON documents under `instances/`. The loader expects:
+Instances are JSON documents under `instances/`. The loader accesses these
+required fields:
 
 - `jobs` and `machines` counts;
 - a known `solution` makespan;
-- an `operations` array with zero-based `job`, `step`, and `machine` values,
-    plus a positive `duration`.
+- an `operations` array containing `job`, `step`, `machine`, and `duration`
+    values.
 
-Operation order is determined by `step`. The current internal representation
-stores one duration per job and machine, matching the standard JSSP instances
-included in this repository.
+The loader does not perform explicit schema or range validation. The included
+instances use zero-based job, step, and machine values and positive durations.
+Operation order is determined by `step`. The internal representation stores
+one duration per job and machine, so it assumes that a job visits each machine
+at most once. This matches the instances in the repository.
 
-Included data sets are:
+The included data is organized as follows:
 
-- three small generated examples in `instances/generated/easy/`;
-- the Fisher-Thompson `ft06` benchmark in `instances/benchmarks/ft/`.
+- `instances/generated/simple/`: three small generated instances;
+- `instances/benchmarks/toy/`: FT and LA benchmark instances;
+- `instances/benchmarks/easy/`: ABZ, LA, SWV, and Taillard instances;
+- `instances/benchmarks/medium/`: larger ABZ, SWV, and Taillard instances;
+- `instances/benchmarks/hard/`: the largest included Taillard instances.
 
-## Experiments
+## Experiments and benchmarks
 
-`Experiment` runs a solver factory repeatedly for every instance in a YAML
-configuration. The included configuration sets repetition count, timeout, and
-input paths:
+`Experiment` runs one solver configuration. `Benchmark` creates one
+experiment per configured solver, enforces per-run timeouts in child
+processes, aggregates results, and writes reports.
 
-```python
-from functools import partial
+Instance paths are resolved relative to the YAML file. The benchmark `output`
+path is resolved relative to the directory where the command is run.
 
-from jssp.experiments.experiments import Experiment
-from jssp.solvers.astar import AStarSolver
+For example, save the following as
+`experiments/configs/local_benchmark.yaml`:
 
-solver_factory = partial(AStarSolver, heuristic="h2")
-experiment = Experiment(
-    "experiments/configs/basic_experiment.yaml",
-    solver_factory,
-)
-experiment.run_experiment()
-
-print(experiment.results)
+```yaml
+benchmark:
+  n_repeats: 1
+  max_time: 60
+  instances:
+    - "../../instances/generated/simple/example1.json"
+  output: "outputs"
+  solvers:
+    - name: "AStar - H2"
+      type: AStarSolver
+      hyperparameters:
+        heuristic: "h2"
+  seeds: [42]
 ```
 
-The experiment runner currently targets solvers that provide
-`schedule_response` and `min_time` attributes. See
-`notebooks/example_experiment.ipynb` for DFS, A*, CSP, tabu-search, experiment,
-and plotting examples.
+The `seeds` list must contain at least `n_repeats` entries because repeat `i`
+uses `seeds[i]`.
+
+Run it from the repository root:
+
+```bash
+uv run python -m jssp.experiments.run_benchmark \
+  --config experiments/configs/local_benchmark.yaml
+```
+
+The benchmark writer creates a subdirectory named after the configuration
+file and produces:
+
+- `metrics_summary.json`;
+- `metrics_summary.csv`;
+- `success_rate_comparison.png`;
+- `execution_time_comparison.png`.
+
+Committed reports are available under `outputs/` for the toy, easy, medium,
+and hard instance sets. The example
+and final YAML files are under `experiments/configs/`.
+
+`run.sh` installs the project in editable mode and starts the final toy
+benchmark. It changes to the repository root before resolving the relative
+paths in the final configuration:
+
+```bash
+./run.sh
+```
+
+By default, the benchmark uses the `max_time` value from its YAML
+configuration. Override it for each solver run, or disable the timeout:
+
+```bash
+./run.sh --max-time 120
+./run.sh --max-time none
+```
+
+Run solver experiments concurrently to reduce total wall-clock time.
+Parallelism is opt-in so timing remains comparable by default:
+
+```bash
+./run.sh --workers 4
+./run.sh --workers max
+```
+
+A positive integer limits concurrent solver experiments. `max` uses the
+available logical CPUs, capped by the number of configured solvers. Concurrent
+runs compete for CPU and memory, so individual runtime measurements may be
+higher even when the overall benchmark finishes sooner.
+
+Select one or more instance sets, or run all sets:
+
+```bash
+./run.sh --instances easy
+./run.sh --instances toy medium
+./run.sh --instances all
+```
 
 ## Tests
 
-Run the automated tests with:
+Run the test suite with:
 
 ```bash
 uv run pytest
 ```
 
-The current test suite covers the A* and CSP solvers against the known optimum
-for `example1.json`.
+The checked-in tests cover A* and CSP solutions, metric initialization and
+reset behavior for all four solvers, experiment-worker metric collection, and
+the tabu neighbourhood labels in every benchmark configuration.
 
 ## Repository layout
 
 ```text
 .
 ├── experiments/
-│   └── configs/                 # YAML experiment definitions
+│   └── configs/
+│       ├── examples/            # Example experiment and benchmark YAML
+│       └── final/               # Final benchmark YAML files
 ├── instances/
-│   ├── benchmarks/ft/          # Fisher-Thompson benchmark data
-│   └── generated/easy/         # Small generated examples
+│   ├── benchmarks/
+│   │   ├── toy/
+│   │   ├── easy/
+│   │   ├── medium/
+│   │   └── hard/
+│   └── generated/simple/        # Small generated examples
 ├── notebooks/
-│   └── example_experiment.ipynb
-├── pre-analysis/                # Requirements and research notes
+│   ├── example_benchmark.ipynb
+│   ├── example_experiment.ipynb
+│   └── test_solvers.ipynb
+├── outputs/                      # Committed benchmark reports and plots
+├── pre-analysis/                 # Requirements and research notes
 ├── src/jssp/
-│   ├── core/                    # Models, loaders, plots, validation
-│   ├── experiments/             # Experiment orchestration
-│   └── solvers/                 # DFS, A*, CSP, and tabu search
-├── tests/                       # Automated solver tests
-├── pyproject.toml               # Package metadata and dependencies
-└── uv.lock                      # Locked dependency versions
+│   ├── core/                     # Models, loaders, plots, validation
+│   ├── experiments/              # Experiment and benchmark runners
+│   └── solvers/                  # DFS, A*, CSP, and tabu search
+├── tests/                        # Solver regression tests
+├── run.sh                        # Toy benchmark entry point
+├── pyproject.toml                # Package metadata and dependencies
+└── uv.lock                       # Locked dependency versions
 ```
 
-`main.py` is currently a minimal project scaffold. Use the package APIs or the
-example notebook for solver execution.
+`main.py` remains a minimal project scaffold. Use the package APIs, benchmark
+entry point, or notebooks for solver execution.
 
 ## License
 
