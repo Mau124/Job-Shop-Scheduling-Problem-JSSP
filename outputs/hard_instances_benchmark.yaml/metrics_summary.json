@@ -5,9 +5,9 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.52037917058915,
-                "variance": 0.001247004381115127,
-                "std": 0.03531294919877306
+                "mean": 60.499262908264065,
+                "variance": 0.0010307931559172907,
+                "std": 0.032105967605996405
             },
             "min_time": {
                 "mean": null,
@@ -35,9 +35,9 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.507282825012226,
-                "variance": 0.0013467175131442544,
-                "std": 0.03669764996759676
+                "mean": 60.48524290418718,
+                "variance": 0.0013539832011321814,
+                "std": 0.03679651071952586
             },
             "min_time": {
                 "mean": null,
@@ -65,9 +65,9 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.50921913749771,
-                "variance": 0.0017079264050220996,
-                "std": 0.04132706625230128
+                "mean": 60.49095064578578,
+                "variance": 0.0013434223344709541,
+                "std": 0.03665272615332936
             },
             "min_time": {
                 "mean": null,
@@ -95,9 +95,9 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.51899119169684,
-                "variance": 0.0010462649757164498,
-                "std": 0.032346019472517015
+                "mean": 60.498371037479956,
+                "variance": 0.0009790874109674424,
+                "std": 0.03129037249646355
             },
             "min_time": {
                 "mean": null,
@@ -122,27 +122,27 @@
         },
         "Tabu - n2": {
             "total_runs": 10,
-            "successful_runs": 0,
-            "success_rate": 0.0,
+            "successful_runs": 10,
+            "success_rate": 1.0,
             "elapsed_time": {
-                "mean": 60.51981455831556,
-                "variance": 0.0015154178723848562,
-                "std": 0.03892836847833282
+                "mean": 16.458649033494293,
+                "variance": 23.4314032002682,
+                "std": 4.840599467035896
             },
             "min_time": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 1770.3,
+                "variance": 1701.3444444444444,
+                "std": 41.24735681767311
             },
             "expanded_nodes": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 51956.9,
+                "variance": 259880381.43333334,
+                "std": 16120.805855580958
             },
             "max_frontier": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 23.4,
+                "variance": 6.044444444444444,
+                "std": 2.4585451886114367
             },
             "error": {
                 "mean": null,
@@ -155,9 +155,9 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.52087783741299,
-                "variance": 0.0012863534168852336,
-                "std": 0.035865769431105664
+                "mean": 60.49647431208287,
+                "variance": 0.0009377689915673409,
+                "std": 0.030623014083648606
             },
             "min_time": {
                 "mean": null,
@@ -187,9 +187,9 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.53659762509633,
-                "variance": 0.0008291986991143256,
-                "std": 0.028795810443783758
+                "mean": 60.55115662929602,
+                "variance": 0.0033451378290682387,
+                "std": 0.0578371665027622
             },
             "min_time": {
                 "mean": null,
@@ -217,9 +217,9 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.506951258413025,
-                "variance": 0.0009040600821024786,
-                "std": 0.030067591890646624
+                "mean": 60.4549135584035,
+                "variance": 0.0007014276129530136,
+                "std": 0.026484478717788907
             },
             "min_time": {
                 "mean": null,
@@ -247,9 +247,9 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.51391104180366,
-                "variance": 0.0008247619966194958,
-                "std": 0.028718669826778117
+                "mean": 60.461656167078765,
+                "variance": 0.00043339501035653805,
+                "std": 0.020818141376130053
             },
             "min_time": {
                 "mean": null,
@@ -277,9 +277,9 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.536110433505385,
-                "variance": 0.0010220553292210916,
-                "std": 0.03196960007915475
+                "mean": 60.55180336651392,
+                "variance": 0.0033927040803787864,
+                "std": 0.05824692335547678
             },
             "min_time": {
                 "mean": null,
@@ -304,27 +304,27 @@
         },
         "Tabu - n2": {
             "total_runs": 10,
-            "successful_runs": 0,
-            "success_rate": 0.0,
+            "successful_runs": 10,
+            "success_rate": 1.0,
             "elapsed_time": {
-                "mean": 60.53115259591723,
-                "variance": 0.000833419409757569,
-                "std": 0.0288690043083853
+                "mean": 16.20450808329042,
+                "variance": 15.159380456011764,
+                "std": 3.8935049063808513
             },
             "min_time": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 1710.7,
+                "variance": 1085.3444444444444,
+                "std": 32.94456623548783
             },
             "expanded_nodes": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 51465.1,
+                "variance": 171889910.76666668,
+                "std": 13110.679264121545
             },
             "max_frontier": {
-                "mean": null,
-                "variance": null,
-                "std": null
+                "mean": 22.8,
+                "variance": 11.066666666666666,
+                "std": 3.32665998663324
             },
             "error": {
                 "mean": null,
@@ -337,9 +337,9 @@
             "successful_runs": 0,
             "success_rate": 0.0,
             "elapsed_time": {
-                "mean": 60.53137387093157,
-                "variance": 0.0009272490034478942,
-                "std": 0.030450763593839386
+                "mean": 60.552791333501226,
+                "variance": 0.0037736078011985606,
+                "std": 0.061429698039291714
             },
             "min_time": {
                 "mean": null,
