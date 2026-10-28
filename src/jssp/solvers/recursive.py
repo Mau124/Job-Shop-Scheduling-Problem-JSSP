@@ -43,6 +43,9 @@ class RecursiveSolver(Solver):
         self._frontier_size -= 1
         self.expanded_nodes += 1
 
+        if max(self.time, default=0) >= self.min_time:
+            return
+
         if self.operations_covered >= self.total_operations:
             total_time = max(self.time, default=0)
             if total_time < self.min_time:
